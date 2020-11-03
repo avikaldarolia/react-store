@@ -36,7 +36,7 @@ export default class Navbar extends Component {
 }
 
 const NavWrapper = styled.nav`
-    background:var(--mainBlue);
+    background:var(--mainDark);
     .nav-item{
         color: var(--mainWhite);
     };
@@ -45,5 +45,4 @@ const NavWrapper = styled.nav`
         font-size: 1.3rem;
         text-transform: capitalize !important;
     };
-
 `;

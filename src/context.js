@@ -18,20 +18,17 @@ const ProductContext = React.createContext();
 
      componentDidMount(){
          this.setProducts();
-     }
-
+    }
      getItem = (id) => {
          const product = this.state.products.find( item => item.id===id);
          return product;
-     }
-
+    }
      handleDetail = (id)=>{ 
          const product = this.getItem(id);
          this.setState(()=>{
              return {detailProduct: product}
          })
-     }
-
+    }
      addToCart = (id)=>{
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id)); 
@@ -61,7 +58,6 @@ const ProductContext = React.createContext();
             return {modalOpen: false}
         })
     }
-
     setProducts = () => {
 
         let tempProducts = [];
@@ -73,7 +69,6 @@ const ProductContext = React.createContext();
             return {products: tempProducts}
         });
     }
-
     increment = (id) => {
          let tempCart = [...this.state.cart];
          //we find our selected product by using the id
@@ -91,7 +86,6 @@ const ProductContext = React.createContext();
          }
          );
     }
-
     decrement = (id) => {
         let tempCart = [...this.state.cart];
          //we find our selected product by using the id
@@ -117,7 +111,6 @@ const ProductContext = React.createContext();
         
          
    }
-
     removeItem = (id) => {
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
@@ -139,8 +132,7 @@ const ProductContext = React.createContext();
             this.addTotals();
         }
         );
-    }
-    
+    }   
     clearCart = ()=> {
         this.setState( ()=>{
             return{ cart:[]}
@@ -151,7 +143,6 @@ const ProductContext = React.createContext();
         }
         );
     }
-
     addTotals = () =>{
         let subTotal = 0;
         this.state.cart.map((item) =>(subTotal+=item.total));
@@ -168,7 +159,6 @@ const ProductContext = React.createContext();
             }
         })
     }
-
     render() {
         return (
             <ProductContext.Provider value={
